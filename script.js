@@ -1,4 +1,11 @@
 const grid = document.querySelector(".grid");
+const btn = document.querySelector("#book");
+const form = document.querySelector("#form");
+const submit = document.querySelector("#submit");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
+const read = document.querySelector("select");
 console.log(grid);
 let library = [];
 
@@ -16,9 +23,19 @@ function addBookToLibrary(book) {
 function displayBooks() {
     for (let i=0; i<library.length; i++) {
         let info = document.createElement("p");
-        grid.appendChild(info);
+        info.style.cssText = "background: white; border: solid white; border-radius: 8px;"
         info.textContent = `${library[i].title} by ${library[i].author}, 
         ${library[i].pages}, ${library[i].read}`;
+        grid.appendChild(info);
     }
 }
 
+btn.onclick = () => {
+    form.showModal();
+}
+
+submit.onclick=() => {
+    event.preventDefault();
+    let newBook = new Book(title, author, pages, read);
+    addBookToLibrary(newBook);
+}
