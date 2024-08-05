@@ -9,6 +9,10 @@ const read = document.querySelector("select");
 const form = document.querySelector("#form");
 let library = [];
 
+/*Book.prototype.readSwitch = () => {
+
+}*/
+
 function Book(title, author, pages, read, index) {
     this.title = title;
     this.author = author;
@@ -35,7 +39,7 @@ function displayBooks(i) {
     book.style.cssText = "background: white; border: solid white; border-radius: 8px;"
     book.appendChild(info);
     info.textContent = `${library[i].title} by ${library[i].author}, 
-    ${library[i].pages}, ${library[i].read}`;
+    ${library[i].pages} pages long, read: ${library[i].read}`;
     grid.appendChild(book);
 }
 
